@@ -1,5 +1,5 @@
 const button = document.querySelector('button');
-const body = document.querySelector('body');
+
 
 button.addEventListener('click', () => {
     if(document.querySelector('.container')) {
@@ -7,6 +7,7 @@ button.addEventListener('click', () => {
         temp.remove();
 
     }
+    const body = document.querySelector('body');
     const container = document.createElement('div');
     container.classList.add('container');
     body.appendChild(container);
@@ -15,22 +16,20 @@ button.addEventListener('click', () => {
 
 
     let ask = parseInt(prompt("How Many Gridobjects?"));
-    ask > 100 || isNaN(ask) ?  alert('Invalid amount') : createObjects(ask);
+    ask > 100 || isNaN(ask) ?  alert('Invalid amount \nEnter: 1 - 100') : createObjects(ask);
  
 const blocks = document.querySelectorAll('.block');
   blocks.forEach((block) => {
         block.addEventListener('mouseover', () => {
-            // let factor = 255;
-            block.style.backgroundColor = "black";
-            //block.style.backgroundColor = `rgb(${Math.random * factor}, ${Math.random * factor}, ${Math.random * factor})`;
-            // if (factor > 0) {
-            //     return () => {
-            //       factor--; return factor;
-            // } };
+            let factor = 255;
+            block.style.backgroundColor = `rgb(${Math.random() *
+            factor}, ${Math.random() * factor}, ${Math.random() * factor})`;
         });
     });
 
 });
+
+
 
 function createObjects(amount) {
     const container = document.querySelector('.container')
