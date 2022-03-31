@@ -21,9 +21,12 @@ button.addEventListener('click', () => {
 const blocks = document.querySelectorAll('.block');
   blocks.forEach((block) => {
         block.addEventListener('mouseover', () => {
-            let factor = 255;
-            block.style.backgroundColor = `rgb(${Math.random() *
-            factor}, ${Math.random() * factor}, ${Math.random() * factor})`;
+            let color = document.querySelector("select").value;
+            if (color === "colorful") {
+                color = `rgb(${Math.random() * 255}, 
+                ${Math.random() * 255}, ${Math.random() * 255})`;
+            }
+            block.style.backgroundColor = color;
         });
     });
 
