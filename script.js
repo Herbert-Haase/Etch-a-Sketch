@@ -14,18 +14,19 @@ button.addEventListener('click', () => {
 
 
 
-    let ask = parseInt(prompt('How Many Gridobjects?'));
-    ask > 100 || isNaN(ask) ?  alert('Invalid amount \nEnter: 1 - 100') : createObjects(ask);
+    let ask = parseInt(prompt('Gib eine Auflösung ein. \nEingabe: 1 bis 100'));
+    ask > 100 || ask < 1 || isNaN(ask) ?
+      alert('Ungültige Menge \nGib 1 bis 100 ein.') : createObjects(ask);
  
-const blocks = document.querySelectorAll('.block');
-  blocks.forEach((block) => {
-        block.addEventListener('mouseover', () => {
+const pixels = document.querySelectorAll('.pixel');
+  pixels.forEach((pixel) => {
+        pixel.addEventListener('mouseover', () => {
             let color = document.querySelector('select').value;
             if (color === 'colorful') {
                 color = `rgb(${Math.random() * 255}, 
                 ${Math.random() * 255}, ${Math.random() * 255})`;
             };
-            block.style.backgroundColor = color;
+            pixel.style.backgroundColor = color;
         });
     });
 });
@@ -35,14 +36,14 @@ const blocks = document.querySelectorAll('.block');
 function createObjects(amount) {
     const container = document.querySelector('.container')
     for(let i = 0; i < amount; i++) {
-        const block = document.createElement('div');
-        block.classList.add('hold');
+        const rowOfPixels = document.createElement('div');
+        rowOfPixels.classList.add('row');
         for(let j = 0; j < amount; j++) {
-            const BLOCKS = document.createElement('div');
-            BLOCKS.classList.add('block');
-            block.appendChild(BLOCKS);
+            const pixel = document.createElement('div');
+            pixel.classList.add('pixel');
+            rowOfPixels.appendChild(pixel);
         };
-        container.appendChild(block);
+        container.appendChild(rowOfPixels);
     }
 }
 

@@ -13,7 +13,7 @@ div {
     border: solid grey;
     flex-direction: column;
 }
-.hold, .block {
+.row, .pixel {
     flex: 1 1 auto;
 }
 select {
